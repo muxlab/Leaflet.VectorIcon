@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet debug page</title>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+	<style>
+    html, body, #map {
+      height: 100%;
+      font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+    }
+	</style>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+	<script src="L.VectorIcon.js"></script>
+</head>
+<body>
+
+	<div id="map"></div>
+
+	<script type="text/javascript">
+		L.Map = L.Map.extend({
+      openPopup: function(popup) {
+        // this.closePopup();  // just comment this
+        this._popup = popup;
+        return this.addLayer(popup).fire('popupopen', {
+          popup: this._popup
+        });
+      }
+    });
+		var map = L.map('map').setView([36, 139], 5);
+		L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+		attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+		}).addTo(map);
+
+		var pathIcon = L.vectorIcon({
+		  className: 'my-vector-icon',
+			svgHeight: 32,
+		  svgWidth: 32,
+			type: 'path',
+			shape: {
+				d: 'M23.963,20.834L17.5,9.64c-0.825-1.429-2.175-1.429-3,0L8.037,20.834c-0.825,1.429-0.15,2.598,1.5,2.598h12.926C24.113,23.432,24.788,22.263,23.963,20.834z'
+			},
+			style: {
+				fill: '#ddd',
+				stroke: '#fff',
+				strokeWidth: 2
+			}
+		});
+		var circleIcon = L.vectorIcon({
+		  className: 'my-vector-icon',
+			svgHeight: 32,
+		  svgWidth: 32,
+			type: 'circle', // path | circle | rect
+		  shape: {
+		    r: '15',
+		    cx: '16',
+		    cy: '16'
+		  },
+			style: {
+				fill: '#ddd',
+				stroke: '#fff',
+				strokeWidth: 2
+			}
+		});
+		var rectIcon = L.vectorIcon({
+		  className: 'my-vector-icon',
+			svgHeight: 32,
+		  svgWidth: 32,
+			type: 'rect', // path | circle | rect
+		  shape: {
+		    x: '1',
+		    y: '1',
+		    width: '30',
+		    height: '30'
+		  },
+			style: {
+				fill: '#ddd',
+				stroke: '#fff',
+				strokeWidth: 2
+			}
+		});
+		var pathMarker = L.marker([36, 137], { icon: pathIcon }).addTo(map).bindPopup('Path');
+		var circleMarker = L.marker([36, 139], { icon: circleIcon }).addTo(map).bindPopup('Circle');
+		var rectMarker = L.marker([36, 141], { icon: rectIcon }).addTo(map).bindPopup('Rect');
+	</script>
+</body>
+</html>
