@@ -53,7 +53,7 @@ var circleIcon = L.vectorIcon({
   className: 'my-vector-icon',
   svgHeight: 32,
   svgWidth: 32,
-  type: 'circle', // path | circle | rect
+  type: 'circle',
   shape: {
     r: '15',
     cx: '16',
@@ -76,7 +76,7 @@ var rectIcon = L.vectorIcon({
   className: 'my-vector-icon',
   svgHeight: 32,
   svgWidth: 32,
-  type: 'rect', // path | circle | rect
+  type: 'rect',
   shape: {
     x: '1',
     y: '1',

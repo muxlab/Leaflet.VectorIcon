@@ -56,7 +56,7 @@ L.VectorIcon = L.Icon.extend({
 			figure.setAttributeNS(null, 'height', options.shape.height);
 		}
 		else {
-			cosole.log();
+			console.log('Error: defined type of svg shape is invalid.');
 		}
 
 		figure.setAttributeNS(null, 'stroke', options.style.stroke);
