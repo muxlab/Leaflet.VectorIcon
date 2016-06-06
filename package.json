@@ -1,0 +1,25 @@
+{
+  "name": "leaflet-vectoricon",
+  "version": "0.1.0",
+  "description": "Pure svg icon for Leaflet markers ",
+  "main": "L.VectorIcon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muxlab/Leaflet.VectorIcon.git"
+  },
+  "keywords": [
+    "leaflet",
+    "icon",
+    "svg",
+    "marker"
+  ],
+  "author": "Yusuke Nunokawa <nuno0825@gmail.com> (https://ynunokawa.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muxlab/Leaflet.VectorIcon/issues"
+  },
+  "homepage": "https://github.com/muxlab/Leaflet.VectorIcon#readme"
+}
