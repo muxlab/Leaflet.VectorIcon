@@ -1,6 +1,6 @@
 {
   "name": "leaflet-vectoricon",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Pure svg icon for Leaflet markers ",
   "main": "L.VectorIcon.js",
   "scripts": {
