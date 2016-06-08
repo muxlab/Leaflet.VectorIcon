@@ -19,7 +19,8 @@ L.VectorIcon = L.Icon.extend({
 			fill: '#333',
 			stroke: '#000',
 			strokeWidth: 1
-		}
+		},
+		text: ''
 	},
 
 	createIcon: function (oldIcon) {
@@ -55,13 +56,27 @@ L.VectorIcon = L.Icon.extend({
 			figure.setAttributeNS(null, 'width', options.shape.width);
 			figure.setAttributeNS(null, 'height', options.shape.height);
 		}
+		else if(options.type === 'text') {
+			figure = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+			figure.setAttributeNS(null, 'x', options.shape.x);
+			figure.setAttributeNS(null, 'y', options.shape.y);
+			figure.setAttributeNS(null, 'font-family', options.style.fontFamily || 'Arial');
+			figure.setAttributeNS(null, 'font-style', options.style.fontStyle || 'normal');
+			figure.setAttributeNS(null, 'font-variant', options.style.fontVariant || 'normal');
+			figure.setAttributeNS(null, 'font-weight', options.style.fontWeight || 'normal');
+			figure.setAttributeNS(null, 'font-size', options.style.fontSize || '12');
+			figure.setAttributeNS(null, 'text-anchor', options.style.textAnchor || 'middle');
+			figure.setAttributeNS(null, 'text-decoration', options.style.textDecoration || 'none');
+			figure.setAttributeNS(null, 'text-rendering', options.style.textRendering || 'auto');
+			figure.innerHTML = options.text;
+		}
 		else {
 			console.log('Error: defined type of svg shape is invalid.');
 		}
 
-		figure.setAttributeNS(null, 'stroke', options.style.stroke);
+		figure.setAttributeNS(null, 'stroke', options.style.stroke || 'none');
 		figure.setAttributeNS(null, 'stroke-width', options.style.strokeWidth);
-		figure.setAttributeNS(null, 'fill', options.style.fill);
+		figure.setAttributeNS(null, 'fill', options.style.fill || 'none');
 
 		g.appendChild(figure);
 		svg.appendChild(g);

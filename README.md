@@ -21,6 +21,7 @@ Load the script.
 * `<path>`
 * `<circle>`
 * `<rect>`
+* `<text>`
 
 W3C page ([Basic Shapes](https://www.w3.org/TR/SVG/shapes.html)) for more information on svg shapes.
 
@@ -91,6 +92,32 @@ var rectIcon = L.vectorIcon({
 });
 
 var rectMarker = L.marker([36, 141], { icon: rectIcon }).addTo(map);
+```
+
+### Text
+
+```js
+var textIcon = L.vectorIcon({
+  className: 'my-vector-icon',
+  svgHeight: 32,
+  svgWidth: 50,
+  type: 'text', // path | circle | rect | text
+  shape: {
+    x: '25',
+    y: '24'
+  },
+  style: {
+    fill: '#ddd',
+    //stroke: '#fff',
+    strokeWidth: 2,
+    fontFamily: 'Helvetica',
+    fontSize: '16',
+    fontWeight: '100'
+  },
+  text: 'Hello!'
+});
+
+var textMarker = L.marker([36, 141], { icon: textIcon }).addTo(map);
 ```
 
 ## License
