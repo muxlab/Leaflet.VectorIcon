@@ -35,6 +35,7 @@ L.VectorIcon = L.Icon.extend({
 		svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
 		svg.setAttribute('height', options.svgHeight + '');
 		svg.setAttribute('width', options.svgWidth + '');
+		svg.setAttribute('viewBox', options.viewBox + '');
 
 		svg.style.marginTop = (options.svgHeight/2 - 6) * -1 + 'px';
 		svg.style.marginLeft = (options.svgWidth/2 - 6) * -1 + 'px';
